@@ -1,6 +1,9 @@
 apply plugin: "com.android.application"
 
+apply plugin: "com.google.gms.google-services"
+
 import com.android.build.OutputFile
+
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -130,7 +133,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.myshopping"
+        applicationId "com.myshoppingaszurar"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -185,6 +188,10 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation platform("com.google.firebase:firebase-bom:30.2.0")
+
+    implementation "com.google.firebase:firebase-analytics"
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
