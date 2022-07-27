@@ -19,7 +19,7 @@ export function FormBox() {
       const data = {
         description,
         quantity,
-        createdAt: new Date(),
+        createdAt: firestore.FieldValue.serverTimestamp(),
       }
       await firestore().collection('products').doc(id).set(data);
       setDescription('');
